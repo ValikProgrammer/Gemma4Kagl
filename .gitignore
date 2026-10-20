@@ -1,0 +1,23 @@
+# Kaggle bulk data / secrets
+data/
+snapshots/
+docker/
+wheels/
+embeddings/
+graphs/
+sandbox/
+results/
+kaggle.json
+access_token
+.env
+
+# Model weights / archives
+*.safetensors
+*.whl
+*.tgz
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+.venv/
