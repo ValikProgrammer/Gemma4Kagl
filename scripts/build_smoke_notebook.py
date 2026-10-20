@@ -21,6 +21,7 @@ SUBMISSION = ROOT / "sample_submission"
 OUT = ROOT / "notebooks" / "smoke"
 KERNEL_SLUG = "gemma4-smoke-test"
 USERNAME = "valentinhilko"
+DOCKER_IMAGE = "gcr.io/kaggle-private-byod/python@sha256:37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461"
 
 
 def code(src):
@@ -121,6 +122,9 @@ def main():
         "competition_sources": ["gemma-4-developer-agent"],
         "model_sources": [f"google/gemma-4/Other/{args.model}/2"],
         "machine_shape": "NvidiaL4",
+        # Pinned image from the official starter: the wheelhouse is built for Python 3.12,
+        # the default Kaggle image has 3.13 and pip fails with "not a supported wheel".
+        "docker_image": DOCKER_IMAGE,
     }))
     (OUT / "kernel-metadata.json").write_text(json.dumps(meta, indent=2))
     print(f"wrote {nb_path} ({len(files)} embedded files, {args.tasks} tasks, model {args.model})")
