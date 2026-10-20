@@ -1,7 +1,7 @@
-# Optional participant evaluation configuration for Stage 1 inference.
-# Controls per-task execution budgets and sandbox command timeouts.
+# Per-task budgets for Stage 1 inference.
+# The starter kit used 60s / 10 calls / 1 min, which only fits "read one file, edit once".
 evaluation:
-  timeout_seconds: 60
-  max_tool_calls: 10
-  max_time_minutes: 1
-  max_turns: 50
+  timeout_seconds: 300
+  max_tool_calls: 100
+  max_time_minutes: 20
+  max_turns: 200
