@@ -1,7 +1,7 @@
-# Per-task budgets for Stage 1 inference.
-# The starter kit used 60s / 10 calls / 1 min, which only fits "read one file, edit once".
+# Per-task budgets (v5). Official run: 12 h for ~116 tasks, run one by one.
+# 116 x 5 min = 9.7 h worst case + setup. A session timeout keeps the current git diff.
 evaluation:
-  timeout_seconds: 300
-  max_tool_calls: 100
-  max_time_minutes: 8
-  max_turns: 200
+  timeout_seconds: 120
+  max_tool_calls: 50
+  max_time_minutes: 5
+  max_turns: 80
